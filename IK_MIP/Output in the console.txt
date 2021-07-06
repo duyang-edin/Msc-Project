@@ -1,0 +1,45 @@
+Output in the console:
+
+-------------gurobipy-------------------
+Academic license - for non-commercial use only - expires 2021-07-23
+Using license file /Users/duyang/gurobi.lic
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (mac64[rosetta2])
+Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 4 rows, 11 columns and 13 nonzeros
+Model fingerprint: 0x47e5a0a5
+Model has 3 quadratic objective terms
+Model has 6 general constraints
+Variable types: 0 continuous, 11 integer (11 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+00, 5e+00]
+  QObjective range [2e+00, 2e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e+00, 3e+00]
+Presolve removed 4 rows and 11 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 11.66 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.166000000000e+01, best bound 1.166000000000e+01, gap 0.0000%
+
+-------------scipy.optimize-------------
+-------------------------
+Initial joint angles [0.1, 0.1, 0.1]
+Final joint angles:  [-1.54138971e-17 -4.07364410e-06  8.14728820e-06]
+Desired hand position:  [3, 0]
+Actual hand position:  [2.9999999999834053, -2.846030702774449e-19]
+Error:  1.6594725593677143e-11
+-------------------------
+
+---------Results---------
+Final joint angles:  [-1.54138971e-17 -4.07364410e-06  8.14728820e-06]
+Desired hand position:  [3, 0]
+Actual hand position:  [2.9999999999834053, -2.846030702774449e-19]
+-------------------------
+Got it, click another position.
