@@ -7,5 +7,4 @@ Plan
 5. Apply linear program from gurobipy package                             "IK_MIP"
 6. Add the Joint limits                                                   "IK_MIP"
 7. Kinematics constraints on link position and orientation                "IK_MIP"
-8. Collision avoidance
-9. Reconstruct
+8. Collision avoidance                                                    "Collision avoidance"              
