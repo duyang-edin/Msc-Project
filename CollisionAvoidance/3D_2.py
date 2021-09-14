@@ -4,15 +4,14 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.pyplot import MultipleLocator
 
-# builds a N sided polygon approximation of a circle for MIP. It is the union of the segments making up the polygon
-# might also be useful to directly encode arcs. for joint constraint limits.
+# builds a N sided polygon approximation of a circle for MIP.
 
 def circle(N):
     x = cvx.Variable()
     y = cvx.Variable()
     l = cvx.Variable(N)
 
-    segment = cvx.Variable(N,boolean=True) #segment indicator variables, relaxing the boolean constraint gives the convex hull of the polygon
+    segment = cvx.Variable(N,boolean=True)
 
     angles = np.linspace(0, 2*np.pi, N, endpoint=False)  #divide 2pi
     xs = np.cos(angles)
@@ -21,11 +20,11 @@ def circle(N):
     constraints = []
     constraints = [x == l*xs, y == l*ys]
     constraints = constraints + [cvx.sum(l) == 1, l <= 1, 0 <= l]
-    constraints = constraints +  [cvx.sum(segment) == 1] # only one indicator variable can be nonzero
+    constraints = constraints +  [cvx.sum(segment) == 1] # only one variable can be nonzero
 
-    constraints = constraints +  [l[N-1] <= segment[N-1] + segment[0]] #special wrap around case
+    constraints = constraints +  [l[N-1] <= segment[N-1] + segment[0]]
     for i in range(N-1):
-        constraints = constraints + [l[i] <= segment[i] + segment[i+1]] # interpolation variables suppressed
+        constraints = constraints + [l[i] <= segment[i] + segment[i+1]]
     return x, y, constraints
 
 def main():
