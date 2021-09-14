@@ -109,6 +109,7 @@ def main():
         Rs.append(R1)
         Rs_z.append(R2)
 
+    # Here is the end-effector position
     end_position = np.array([5,4,4])
     constraints = constraints + [p2 == end_position]
 
@@ -165,6 +166,7 @@ def main():
         for i in range(1, len(x) - 2):
             ax.text(x[i], y[i], z[i], "Joint", color='black');
 
+        # an cuboid with length 0.95 width 0.95 height 1.15
         ax.text(0.95, 0.95, 1.15, "Obstacle", color='black');
 
         for i in range(len(x) - 1):
